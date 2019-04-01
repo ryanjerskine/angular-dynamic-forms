@@ -1,0 +1,16 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="question.controlType">
+    <!-- Textbox -->
+    <mat-form-field *ngSwitchCase="'textbox'">
+      <input matInput placeholder="{{question.label}}"  [formControlName]="question.key" [id]="question.key" [type]="question.type" autocomplete="new-password">
+      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+    </mat-form-field>
+    <!-- Dropdown/Select -->
+    <mat-form-field *ngSwitchCase="'dropdown'">
+      <mat-select placeholder="{{question.label}}">
+        <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+    </mat-form-field>
+  </div>
+</div>
