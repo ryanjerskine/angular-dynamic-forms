@@ -33,7 +33,6 @@ export class FormComponent implements OnChanges {
   }
  
   onSubmit(): void {
-    console.log(this.form);
     if (!this.form.valid) {
       // Invalid
     }
