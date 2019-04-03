@@ -1,20 +1,37 @@
 {
   "id": 3,
-  "saveText": "Save and Continue",
+  "saveText": "Keep Going",
   "group": {
     "id": 2,
     "Name": "More Info"
   },
   "questions": [
     {
-      "controlType": "textbox",
-      "type": "text",
+      "controlType": "dropdown",
+      "type": null,
       "value": null,
-      "key": "someProp",
-      "label": "Some Property",
+      "key": "pets",
+      "label": "Pets",
+      "options": [
+        { "key": "cat", "value": "Cat" },
+        { "key": "dog", "value": "Dog" },
+        { "key": "fish", "value": "Fish" },
+        { "key": "horse", "value": "Horse" },
+        { "key": "other", "value": "Other" }
+      ],
+      "optionsAllowMultiple": true,
+      "validators": [],
+      "showOnlyIfHasValue": null,
+      "hidden": false
+    },
+    {
+      "controlType": "toggle",
+      "type": null,
+      "value": null,
+      "key": "newsletter",
+      "label": "Sign me up for the pet newsletter",
       "options": null,
-      "optionsAllowMultiple": false,
-      "validators": ["required"]
+      "validators": []
     }
   ]
 }

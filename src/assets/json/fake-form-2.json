@@ -1,6 +1,6 @@
 {
   "id": 2,
-  "saveText": "Save and Continue",
+  "saveText": "Continue",
   "group": {
     "id": 1,
     "Name": "Initial Info"
@@ -10,11 +10,23 @@
       "controlType": "textbox",
       "type": "text",
       "value": null,
-      "key": "someProp",
-      "label": "Some Property",
+      "key": "favoriteColor",
+      "label": "Favorite Color",
       "options": null,
       "optionsAllowMultiple": false,
-      "validators": ["required"]
+      "validators": [
+        { "type": "required" }
+      ]
+    },
+    {
+      "controlType": "checkbox",
+      "type": null,
+      "value": null,
+      "key": "moreFavoriteColors",
+      "label": "I have more favorite colors",
+      "options": null,
+      "optionsAllowMultiple": false,
+      "validators": []
     }
   ]
 }

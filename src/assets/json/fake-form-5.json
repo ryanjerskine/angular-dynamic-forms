@@ -1,17 +1,17 @@
 {
   "id": 5,
-  "saveText": "Finalize",
+  "saveText": "Finish",
   "group": {
     "id": 3,
     "Name": "Final Info"
   },
   "questions": [
     {
-      "controlType": "textbox",
-      "type": "text",
+      "controlType": "textarea",
+      "type": null,
       "value": null,
-      "key": "someProp",
-      "label": "Some Property",
+      "key": "feedback",
+      "label": "What did you think of this process?",
       "options": null,
       "optionsAllowMultiple": false,
       "validators": ["required"]

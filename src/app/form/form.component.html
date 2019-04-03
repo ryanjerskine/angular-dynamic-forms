@@ -1,4 +1,4 @@
-<div class="wrapper" *ngIf="form">
+<div class="wrapper" *ngIf="form && serverForm">
   <form (ngSubmit)="onSubmit()" [formGroup]="form" autocomplete="new-password" role="search">
 
     <!-- Chrome's autocomplete is a POS so this was the only way I could disable autocomplete -->
@@ -16,11 +16,5 @@
       </button>
     </div>
   </form>
- 
-  <div *ngIf="payLoad" class="form-row">
-    <strong>Saved the following values</strong><br>{{payLoad}}
-  </div>
 </div>
-<div class="wrapper" *ngIf="!form">
-  Form is loading...
-</div>
+<mat-spinner *ngIf="!(form && serverForm)"></mat-spinner>

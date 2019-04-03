@@ -1,6 +1,6 @@
 {
   "id": 1,
-  "saveText": "Save and Continue",
+  "saveText": "Go to question 2",
   "group": {
     "id": 1,
     "Name": "Initial Info"
@@ -37,15 +37,6 @@
         { "type": "required" },
         { "type": "email" }
       ]
-    },
-    {
-      "controlType": "toggle",
-      "type": null,
-      "value": null,
-      "key": "newsletter",
-      "label": "Sign me up for the newsletter",
-      "options": null,
-      "validators": []
     },
     {
       "controlType": "textbox",

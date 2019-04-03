@@ -29,7 +29,7 @@ export class QuestionService {
     });
     return new FormGroup(group);
   }
-  getQuestionsForm(): Observable<IForm> {
-    return this.http.get<IForm>('/assets/json/fake-form-1.json');
+  getQuestionsForm(id: number): Observable<IForm> {
+    return this.http.get<IForm>(`/assets/json/fake-form-${id}.json`);
   }
 }
