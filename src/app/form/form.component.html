@@ -1,4 +1,4 @@
-<div class="wrapper">
+<div class="wrapper" *ngIf="form">
   <form (ngSubmit)="onSubmit()" [formGroup]="form" autocomplete="new-password" role="search">
 
       <!-- Chrome's autocomplete is a POS so this was the only way I could disable autocomplete -->
@@ -6,7 +6,7 @@
       <input type="text" name="not-an-email" value="" style="display: none" />
       <input type="password" name="password" value="" style="display: none" />
 
-    <div *ngFor="let question of questions" class="form-row">
+    <div *ngFor="let question of serverForm.questions" class="form-row">
       <app-question [question]="question" [form]="form"></app-question>
     </div>
  
@@ -18,4 +18,7 @@
   <div *ngIf="payLoad" class="form-row">
     <strong>Saved the following values</strong><br>{{payLoad}}
   </div>
+</div>
+<div class="wrapper" *ngIf="!form">
+  Form is loading...
 </div>

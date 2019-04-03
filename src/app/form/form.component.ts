@@ -1,22 +1,28 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { QuestionService } from '../services/question.service';
-import { QuestionBase } from '../models/question-base';
+import { IForm } from '../services/interfaces/iform';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
-  @Input() questions: QuestionBase<any>[] = [];
+export class FormComponent implements OnChanges {
+  @Input()
+  serverForm: IForm;
   form: FormGroup;
   payLoad = '';
  
   constructor(private questionService: QuestionService) {  }
- 
-  ngOnInit() {
-    this.form = this.questionService.toFormGroup(this.questions);
+
+  ngOnChanges(): void {
+    // Check if the data exists before using it
+    if (this.serverForm) {
+      this.form = this.questionService.convertFormToFormGroup(this.serverForm);
+      console.log(this.form);
+    }
   }
  
   onSubmit() {

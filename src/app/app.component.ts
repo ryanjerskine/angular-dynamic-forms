@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { QuestionService } from './services/question.service';
+import { Observable } from 'rxjs';
+import { IForm } from './services/interfaces/iform';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +9,9 @@ import { QuestionService } from './services/question.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  questions: any[];
+  form$: Observable<IForm> = this.service.getQuestionsForm();
  
-  constructor(service: QuestionService) {
-    this.questions = service.getQuestions();
+  constructor(private service: QuestionService) {
+    
   }
 }

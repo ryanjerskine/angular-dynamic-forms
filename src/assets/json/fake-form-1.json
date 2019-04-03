@@ -1,0 +1,64 @@
+{
+  "id": 1,
+  "questions": [
+    {
+      "controlType": "textbox",
+      "type": "text",
+      "value": null,
+      "key": "firstName",
+      "label": "First Name",
+      "options": null,
+      "validators": ["required"]
+    },
+    {
+      "controlType": "textbox",
+      "type": "text",
+      "value": null,
+      "key": "middleName",
+      "label": "Middle Name",
+      "options": null,
+      "validators": null
+    },
+    {
+      "controlType": "textbox",
+      "type": "text",
+      "value": null,
+      "key": "lastName",
+      "label": "Last Name",
+      "options": null,
+      "validators": ["required"]
+    },
+    {
+      "controlType": "textbox",
+      "type": "email",
+      "value": null,
+      "key": "emailAddress",
+      "label": "Email Address",
+      "options": null,
+      "validators": ["required", "email"]
+    },
+    {
+      "controlType": "textbox",
+      "type": "text",
+      "value": null,
+      "key": "phoneNumber",
+      "label": "Phone Number",
+      "options": null,
+      "validators": null
+    },
+    {
+      "controlType": "dropdown",
+      "type": null,
+      "value": null,
+      "key": "phoneNumberType",
+      "label": "Phone Number Type",
+      "options": [
+        { "key": "mobile", "value": "Mobile" },
+        { "key": "home", "value": "Home" },
+        { "key": "work", "value": "Work" },
+        { "key": "other", "value": "Other" }
+      ],
+      "validators": null
+    }
+  ]
+}

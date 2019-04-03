@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { QuestionBase } from '../models/question-base';
+import { IQuestion } from '../services/interfaces/iquestion';
 
 @Component({
   selector: 'app-question',
@@ -8,7 +8,7 @@ import { QuestionBase } from '../models/question-base';
   styleUrls: ['./question.component.scss']
 })
 export class QuestionComponent implements OnInit {
-  @Input() question: QuestionBase<any>;
+  @Input() question: IQuestion;
   @Input() form: FormGroup;
   get isValid() { return this.form.controls[this.question.key].valid; }
   

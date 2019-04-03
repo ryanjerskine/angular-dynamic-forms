@@ -1,0 +1,14 @@
+{
+  "id": 2,
+  "questions": [
+    {
+      "controlType": "textbox",
+      "type": "text",
+      "value": null,
+      "key": "someProp",
+      "label": "Some Property",
+      "options": null,
+      "validators": ["required"]
+    }
+  ]
+}
