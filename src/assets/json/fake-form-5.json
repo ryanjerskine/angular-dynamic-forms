@@ -1,9 +1,9 @@
 {
-  "id": 2,
-  "saveText": "Save and Continue",
+  "id": 5,
+  "saveText": "Finalize",
   "group": {
-    "id": 1,
-    "Name": "Initial Info"
+    "id": 3,
+    "Name": "Final Info"
   },
   "questions": [
     {

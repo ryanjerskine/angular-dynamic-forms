@@ -1,17 +1,19 @@
 <div class="wrapper" *ngIf="form">
   <form (ngSubmit)="onSubmit()" [formGroup]="form" autocomplete="new-password" role="search">
 
-      <!-- Chrome's autocomplete is a POS so this was the only way I could disable autocomplete -->
-      <input type="text" name="email" value="" style="display: none" />
-      <input type="text" name="not-an-email" value="" style="display: none" />
-      <input type="password" name="password" value="" style="display: none" />
+    <!-- Chrome's autocomplete is a POS so this was the only way I could disable autocomplete -->
+    <input type="text" name="email" value="" style="display: none" />
+    <input type="text" name="not-an-email" value="" style="display: none" />
+    <input type="password" name="password" value="" style="display: none" />
 
     <div *ngFor="let question of serverForm.questions" class="form-row">
       <app-question [question]="question" [form]="form"></app-question>
     </div>
  
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid" mat-raised-button color="primary">Save</button>
+    <div class="submit-row">
+      <button type="submit" mat-raised-button color="primary">
+        {{serverForm.saveText}}
+      </button>
     </div>
   </form>
  

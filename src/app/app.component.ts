@@ -14,4 +14,8 @@ export class AppComponent {
   constructor(private service: QuestionService) {
     
   }
+
+  onSave(event): void {
+    console.log(event);
+  }
 }

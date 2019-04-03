@@ -15,12 +15,16 @@ export class QuestionService {
     let group: any = {};
     form.questions.forEach(q => {
       let validators: ValidatorFn[] = [];
-      if (q.validators && q.validators.indexOf('required') > -1) {
-        validators.push(Validators.required);
-      }
-      if (q.validators && q.validators.indexOf('email') > -1) {
-        validators.push(Validators.email);
-      }
+      
+      q.validators.forEach(v => {
+        if (v.type === 'required') { validators.push(Validators.required); }
+        else if (v.type === 'email') { validators.push(Validators.email); }
+        else if (v.type === 'min') { validators.push(Validators.min(v.value)); }
+        else if (v.type === 'max') { validators.push(Validators.max(v.value)); }
+        else if (v.type === 'minLength') { validators.push(Validators.minLength(v.value)); }
+        else if (v.type === 'maxLength') { validators.push(Validators.maxLength(v.value)); }
+        else if (v.type === 'pattern') { validators.push(Validators.pattern(v.value)); }
+      });
       group[q.key] = new FormControl(q.value || '', validators);
     });
     return new FormGroup(group);

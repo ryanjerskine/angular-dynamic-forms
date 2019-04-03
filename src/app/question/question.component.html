@@ -1,17 +1,38 @@
 <div [formGroup]="form">
-  <div [ngSwitch]="question.controlType">
+  <div [ngSwitch]="question.controlType" *ngIf="!question.hidden">
     <!-- Textbox -->
     <mat-form-field *ngSwitchCase="'textbox'">
-      <input matInput placeholder="{{question.label}}"  [formControlName]="question.key" [id]="question.key" [type]="question.type" autocomplete="new-password">
+      <input matInput placeholder="{{question.label}}" [formControlName]="question.key" [id]="question.key" [type]="question.type" autocomplete="new-password">
       <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
     </mat-form-field>
     <!-- Dropdown/Select -->
     <mat-form-field *ngSwitchCase="'dropdown'">
-      <mat-select placeholder="{{question.label}}">
+      <mat-select placeholder="{{question.label}}" [multiple]="question.optionsAllowMultiple">
         <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
       </mat-select>
       <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
     </mat-form-field>
+    <!-- Checkbox -->
+    <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="question.key">{{question.label}}</mat-checkbox>
+    <!-- Radio -->
+    <div *ngSwitchCase="'radio'" class="radio">
+      <label>{{question.label}}: </label>
+      <mat-radio-group [formControlName]="question.key">
+        <mat-radio-button *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <!-- Datepicker -->
+    <mat-form-field *ngSwitchCase="'datepicker'">
+      <input [formControlName]="question.key" matInput [matDatepicker]="picker" placeholder="{{question.label}}">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!-- Toggle -->
+    <div>
+      <mat-slide-toggle *ngSwitchCase="'toggle'" [formControlName]="question.key">
+        {{question.label}}
+      </mat-slide-toggle>
+    </div>
     <!-- Next Type -->
   </div>
 </div>

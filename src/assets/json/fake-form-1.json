@@ -1,32 +1,30 @@
 {
   "id": 1,
+  "saveText": "Save and Continue",
+  "group": {
+    "id": 1,
+    "Name": "Initial Info"
+  },
   "questions": [
     {
       "controlType": "textbox",
       "type": "text",
       "value": null,
-      "key": "firstName",
-      "label": "First Name",
+      "key": "name",
+      "label": "Name",
       "options": null,
-      "validators": ["required"]
+      "validators": [
+        { "type": "required" }
+      ]
     },
     {
-      "controlType": "textbox",
-      "type": "text",
+      "controlType": "datepicker",
+      "type": null,
       "value": null,
-      "key": "middleName",
-      "label": "Middle Name",
+      "key": "dateOfBirth",
+      "label": "Date of Birth",
       "options": null,
-      "validators": null
-    },
-    {
-      "controlType": "textbox",
-      "type": "text",
-      "value": null,
-      "key": "lastName",
-      "label": "Last Name",
-      "options": null,
-      "validators": ["required"]
+      "validators": []
     },
     {
       "controlType": "textbox",
@@ -35,7 +33,19 @@
       "key": "emailAddress",
       "label": "Email Address",
       "options": null,
-      "validators": ["required", "email"]
+      "validators": [
+        { "type": "required" },
+        { "type": "email" }
+      ]
+    },
+    {
+      "controlType": "toggle",
+      "type": null,
+      "value": null,
+      "key": "newsletter",
+      "label": "Sign me up for the newsletter",
+      "options": null,
+      "validators": []
     },
     {
       "controlType": "textbox",
@@ -44,7 +54,7 @@
       "key": "phoneNumber",
       "label": "Phone Number",
       "options": null,
-      "validators": null
+      "validators": []
     },
     {
       "controlType": "dropdown",
@@ -58,7 +68,10 @@
         { "key": "work", "value": "Work" },
         { "key": "other", "value": "Other" }
       ],
-      "validators": null
+      "optionsAllowMultiple": false,
+      "validators": [],
+      "showOnlyIfHasValue": "phoneNumber",
+      "hidden": true
     }
   ]
 }

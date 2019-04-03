@@ -1,4 +1,5 @@
 import { IOption } from './ioption';
+import { IValidator } from './ivalidator';
 
 export interface IQuestion {
   /**
@@ -26,7 +27,11 @@ export interface IQuestion {
    */
   options: IOption[] | null;
   /**
-   * Optional validators to apply.
+   * Validators to apply.
    */
-  validators: string[] | null;
+  validators: IValidator[];
+
+  // TBD
+  hidden: boolean; // UI Only?
+  showOnlyIfHasValue: string | null;
 }
