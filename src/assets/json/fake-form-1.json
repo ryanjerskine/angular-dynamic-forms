@@ -14,7 +14,9 @@
       "label": "Name",
       "options": null,
       "validators": [
-        { "type": "required" }
+        { "type": "required" },
+        { "type": "minLength", "value": 4 },
+        { "type": "maxLength", "value": 100 }
       ]
     },
     {

@@ -45,8 +45,12 @@ export class FormComponent implements OnChanges {
   }
  
   onSubmit(): void {
+    console.log(this.form);
     if (!this.form.valid) {
-      // Invalid
+      Object.keys(this.form.controls).forEach(field => {
+        const control = this.form.get(field);
+        control.markAsTouched({ onlySelf: true });
+      });
     }
     else {
       this.save.emit(this.form.value);

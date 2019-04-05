@@ -3,23 +3,24 @@
     <!-- Textbox -->
     <mat-form-field *ngSwitchCase="'textbox'">
       <input matInput placeholder="{{question.label}}" [formControlName]="question.key" [type]="question.type" autocomplete="new-password">
-      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+      <mat-error *ngIf="!isValid" [innerHTML]="errorMessage"></mat-error>
     </mat-form-field>
     <!-- Phone -->
     <mat-form-field *ngSwitchCase="'phone'">
       <input matInput placeholder="{{question.label}}" [formControlName]="question.key" type="text" mask="(000) 000-0000" [showMaskTyped]="true">
-      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+      <mat-error *ngIf="!isValid" [innerHTML]="errorMessage"></mat-error>
     </mat-form-field>
     <!-- Textarea -->
     <mat-form-field *ngSwitchCase="'textarea'">
       <textarea matInput placeholder="{{question.label}}" [formControlName]="question.key"></textarea>
+      <mat-error *ngIf="!isValid" [innerHTML]="errorMessage"></mat-error>
     </mat-form-field>
     <!-- Dropdown/Select -->
     <mat-form-field *ngSwitchCase="'dropdown'">
       <mat-select placeholder="{{question.label}}" [multiple]="question.optionsAllowMultiple" [formControlName]="question.key">
         <mat-option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</mat-option>
       </mat-select>
-      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+      <mat-error *ngIf="!isValid" [innerHTML]="errorMessage"></mat-error>
     </mat-form-field>
     <!-- Checkbox -->
     <mat-checkbox *ngSwitchCase="'checkbox'" [formControlName]="question.key">{{question.label}}</mat-checkbox>
@@ -35,6 +36,7 @@
       <input [formControlName]="question.key" matInput [matDatepicker]="picker" placeholder="{{question.label}}">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="!isValid" [innerHTML]="errorMessage"></mat-error>
     </mat-form-field>
     <!-- Toggle -->
     <div>
