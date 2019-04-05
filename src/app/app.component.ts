@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
 
   onSave(event): void {
     this.id++;
-    this.saved += JSON.stringify(event) + '<br>';
+    this.saved += JSON.stringify(event, null, 2) + '\n';
     this.form$ = this.service.getQuestionsForm(this.id);
   }
 }

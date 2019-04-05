@@ -9,6 +9,12 @@ import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { FormComponent } from './form/form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMaskModule } from 'ngx-mask';
+
+import { HighlightModule } from 'ngx-highlightjs';
+import xml from 'highlight.js/lib/languages/xml';
+import scss from 'highlight.js/lib/languages/scss';
+import typescript from 'highlight.js/lib/languages/typescript';
 
 @NgModule({
   declarations: [
@@ -22,7 +28,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    NgxMaskModule.forRoot(),
+    HighlightModule.forRoot({languages: () => { return [{name: 'typescript', func: typescript}]}})
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,6 @@
 <h1>Dynamic Forms Concept</h1>
 <app-form [serverForm]="form$ | async" (save)="onSave($event)"></app-form>
-<div [innerHTML]="saved"></div>
+<div class="json">
+  <h4>Saved Data:</h4>
+  <pre><code [highlight]="saved"></code></pre>
+</div>

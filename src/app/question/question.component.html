@@ -5,6 +5,11 @@
       <input matInput placeholder="{{question.label}}" [formControlName]="question.key" [type]="question.type" autocomplete="new-password">
       <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
     </mat-form-field>
+    <!-- Phone -->
+    <mat-form-field *ngSwitchCase="'phone'">
+      <input matInput placeholder="{{question.label}}" [formControlName]="question.key" type="text" mask="(000) 000-0000" [showMaskTyped]="true">
+      <mat-error *ngIf="!isValid">{{question.label}} has an <strong>error</strong>.</mat-error>
+    </mat-form-field>
     <!-- Textarea -->
     <mat-form-field *ngSwitchCase="'textarea'">
       <textarea matInput placeholder="{{question.label}}" [formControlName]="question.key"></textarea>

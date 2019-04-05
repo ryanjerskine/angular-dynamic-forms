@@ -39,8 +39,8 @@
       ]
     },
     {
-      "controlType": "textbox",
-      "type": "text",
+      "controlType": "phone",
+      "type": null,
       "value": null,
       "key": "phoneNumber",
       "label": "Phone Number",
@@ -60,9 +60,14 @@
         { "key": "other", "value": "Other" }
       ],
       "optionsAllowMultiple": false,
-      "validators": [],
+      "validators": [
+        { "type": "required" }
+      ],
       "showOnlyIfHasValue": "phoneNumber",
       "hidden": true
     }
-  ]
+  ],
+  "flowMetadata": {
+
+  }
 }
